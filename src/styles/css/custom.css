@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+.home {
+    text-align: center;
+  }
+  
+.home-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .profile-image {
+    object-fit: cover;
+    min-width: 80px;
+    min-height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 40px;
+    margin-top: 0px;
+  }
+
+  .bold {
+      font-weight: bold
+  }
