@@ -15,7 +15,10 @@ body {
   
 .home-header {
     background-color: #282c34;
+    background-image: url('https://fi.ramboll.com/-/media/images/rfi/news/news-2019/ramboll-village-ulkoa-1360x765.jpg');
     min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;

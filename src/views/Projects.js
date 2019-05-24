@@ -5,7 +5,7 @@ import { getContent } from './../contentful';
 import ListItem from '../components/ListItem';
 import Container from '../components/Container';
 import LinkHOC from '../components/LinkHOC';
-
+import Card from '../components/Card';
 const Projects = () =>  {
     const [data, setData] = useState([]);
         useEffect(() => {
@@ -18,11 +18,12 @@ const array = data || []
 const ProjectList = array.map( (item, i) => {
     return (
         <LinkHOC to={`project/${item.sys.id}`}>
-            <ListItem 
+            <Card 
                 name={item.fields.projectName} 
                 key={i}
                 image={item.fields.image.fields.file.url}
                 introduction={item.fields.introduction}
+                id={item.sys.id}
             />
         </LinkHOC>
        

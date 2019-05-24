@@ -7,6 +7,7 @@ import Projects from './views/Projects';
 import Project from './views/Project';
 import Members from './views/Members';
 import Member from './views/Member';
+import Dashboard from './views/Dashboard';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
 					<Route path="/partners" exact component={Partners}/>
 					<Route path="/projects" exact component={Projects}/>
 					<Route path="/members" exact component={Members}/>
+					<Route path="/dashboard" exact component={Dashboard}/>
+
 					<Route path="/member/:id" component={Member}/> 
 					<Route path="/project/:id" component={Project}/> 
 
