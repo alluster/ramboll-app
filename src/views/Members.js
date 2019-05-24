@@ -17,6 +17,7 @@ const array = data || []
 const MemberList = array.map( (item, i) => {
     return (
         <LinkHOC to={`member/${item.sys.id}`}>
+            <br />
             <ListItem 
                 name={item.fields.memberName} 
                 email={item.fields.email}
@@ -29,12 +30,9 @@ const MemberList = array.map( (item, i) => {
     )
 
 }
-   
-           
-    
+
 );
 
-console.log(data)
   return (
     <Container >
         {MemberList}

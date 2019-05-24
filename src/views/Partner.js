@@ -5,19 +5,32 @@ import { getEntry } from './../contentful';
 import ListItem from '../components/ListItem';
 import Container from '../components/Container';
 
-const Partner = (props) =>  {
-    const [data, setData] = useState([]);
+const Project = (props) =>  {
+    const [data, setData] = useState({});
         useEffect(() => {
         getEntry(`${props.match.params.id}`)
         .then(entry => setData(entry))
         
 }, [])
+console.log(data)
+const partner = data.fields || { competences: [] }
+console.log(partner)
+const skillMap = partner.competences.map((competence, i) => {
+    return ( 
+    <h1 key={competence}> <span class="label label-primary">{competence}</span></h1>
+)
+})
 
-// console.log(this.props)
   return (
     <Container >
+        <div class="page-header">
+
+            <h1>{partner.partnerName} <small>{partner.introduction}</small></h1>
+        </div>
+        {skillMap}
+       
     </Container>
   );
 }
 
-export default Partner;
+export default Project;

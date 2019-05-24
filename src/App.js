@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from './views/Home';
 import Partners from './views/Partners';
+import Partner from './views/Partner';
 import Projects from './views/Projects';
 import Project from './views/Project';
 import Members from './views/Members';
@@ -13,17 +14,15 @@ function App() {
   return (
 		<div>
 			<Router>
-			<Nav />
-
-					<Route path="/" exact component={Home}/>
-					<Route path="/partners" exact component={Partners}/>
-					<Route path="/projects" exact component={Projects}/>
-					<Route path="/members" exact component={Members}/>
-					<Route path="/dashboard" exact component={Dashboard}/>
-
-					<Route path="/member/:id" component={Member}/> 
-					<Route path="/project/:id" component={Project}/> 
-
+				<Nav />
+				<Route path="/" exact component={Home}/>
+				<Route path="/partners" exact component={Partners}/>
+				<Route path="/projects" exact component={Projects}/>
+				<Route path="/members" exact component={Members}/>
+				<Route path="/dashboard" exact component={Dashboard}/>
+				<Route path="/partner/:id" component={Partner}/> 
+				<Route path="/member/:id" component={Member}/> 
+				<Route path="/project/:id" component={Project}/> 
 			</Router>
 		</div>
   );

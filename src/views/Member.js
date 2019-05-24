@@ -6,16 +6,29 @@ import ListItem from '../components/ListItem';
 import Container from '../components/Container';
 
 const Member = (props) =>  {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
         useEffect(() => {
         getEntry(`${props.match.params.id}`)
         .then(entry => setData(entry))
         
 }, [])
+console.log(data)
+const member = data.fields || { competences: [] }
+console.log(member)
+const skillMap = member.competences.map((competence, i) => {
+    return ( 
+    <h1 key={competence}> <span class="label label-primary">{competence}</span></h1>
+)
+})
 
-// console.log(this.props)
   return (
     <Container >
+        <div class="page-header">
+
+            <h1>{member.memberName} <small>{member.introduction}</small></h1>
+        </div>
+        {skillMap}
+       
     </Container>
   );
 }

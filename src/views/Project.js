@@ -21,11 +21,11 @@ console.log(project)
   return (
     <Container >
         <div className="jumbotron">
-  <h1>  {project.projectName}</h1>
-  <button className="btn btn-primary btn-lg" href="#" role="button">
-  Create a team
-  </button>
-</div>
+            <h1>  {project.projectName}</h1>
+            <button className="btn btn-primary btn-lg" href="#" role="button">
+            Create a team
+            </button>
+        </div>
     </Container>
   );
 }
