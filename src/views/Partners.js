@@ -19,9 +19,9 @@ const PartnerList = array.map( (item, i) => {
     return (
         <LinkHOC to={`partner/${item.sys.id}`}>
             <ListItem 
-                name={item.fields.partnerName} 
+                name={item.fields.name} 
                 key={i}
-                image={item.fields.logo.fields.file.url}
+                image={item.fields.profileImage.fields.file.url}
                 introduction={item.fields.introduction}
             />
         </LinkHOC>

@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import LinkHOC from '../LinkHOC';
 
 const ListItem = (props) => {
-
-	
+const competences = props.competences || []
+	const skillMap = competences.map((competence, i) => {
+    return ( 
+    <p key={competence}> <span class="label label-primary">{competence}</span></p>
+)
+})
 
 	return (
         
@@ -17,6 +21,7 @@ const ListItem = (props) => {
     <h4 class="media-heading bold">{props.name}</h4>
     <p>{props.introduction}</p>
     <p>{props.email}</p>
+    {skillMap}
   </div>
 </div>
 

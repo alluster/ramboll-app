@@ -24,6 +24,7 @@ const ProjectList = array.map( (item, i) => {
                 image={item.fields.image.fields.file.url}
                 introduction={item.fields.introduction}
                 id={item.sys.id}
+                requirements={item.fields.requirements}
             />
         </LinkHOC>
        

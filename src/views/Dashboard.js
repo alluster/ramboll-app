@@ -1,22 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from './../components/Nav'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Container from '../components/Container';
+import { getContent } from './../contentful';
+import LinkHOC from '../components/LinkHOC';
+import ListItem from '../components/ListItem';
+
 const Dashboard = () =>  {
+  const [members, setData] = useState([]);
+  const [value, setValue] = useState("");
+  useEffect(() => {
+  getContent('member')
+  .then(members => {
+      getContent('parter').then(partners => {
+          setData(members.concat(partners))
+      })
+  })
+
+
+  
+}, [])
+let filtered_items = members.map(x => ({obj: x, json: JSON.stringify(x)})).filter(x => x.json.indexOf(value) != -1).map(x => x.obj);
+
+const searchList = filtered_items.map( (item, i) => {
   return (
-    <Container>
-        <h1>Welcome to Ramboll Expertice Management Platform</h1>
-        <h3>Here we combine all expertice in Ramboll with extrenal partners</h3>
-        <h4>How does it work?</h4>
-        <p>1. As a Ramboll employee you create a profile where you list and state your expertice</p>
-        <p>2. As an external company you create a profile where you state your offering</p>
-        <p>3. As a project manager you find the best know-how for your current project with the help of AI</p>
+      <LinkHOC to={`${item.sys.contentType.sys.id}/${item.sys.id}`}>
+      <br />
+          <ListItem 
+              name={item.fields.name} 
+              key={i}
+              image={item.fields.profileImage.fields.file.url}
+              introduction={item.fields.introduction}
+              competences={item.fields.competences}
+          />
+      </LinkHOC>
+     
+  )
 
-            <br/>
-            <button className="btn btn-primary btn-lg" >Join the platform </button>
-    
-
-    </Container>
+})
+ 
+  return (
+		<Container>
+			<h1>Ramboll Expertice Management Platform</h1>
+			<h3>Search for specific competences within Ramboll Partner network and employees</h3>
+			<br/>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<input type="text" class="form-control" 
+						value={value}
+						onChange={e => setValue(e.target.value)}
+						placeholder="Search by a competence" />
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Search</button>
+						</span>
+				</div>
+			</div>
+			{searchList}
+		</Container>
   
      
   );

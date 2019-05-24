@@ -25,7 +25,7 @@ const skillMap = member.competences.map((competence, i) => {
     <Container >
         <div class="page-header">
 
-            <h1>{member.memberName} <small>{member.introduction}</small></h1>
+            <h1>{member.name} <small>{member.introduction}</small></h1>
         </div>
         {skillMap}
        
