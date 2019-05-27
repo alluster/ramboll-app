@@ -41,7 +41,7 @@ const searchList = filtered_items.map( (item, i) => {
  
   return (
 		<Container>
-			<h1>Ramboll Expertice Management Platform</h1>
+			<h1>Ramboll ExpertiseManagement Platform</h1>
 			<h3>Search for specific competences within Ramboll Partner network and employees</h3>
 			<br/>
 			<div class="col-lg-6">

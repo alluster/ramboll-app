@@ -9,7 +9,7 @@ const Home = () =>  {
   
       <header className="home-header">
       <Container>
-      <h1>Ramboll Expertice Management Platform</h1>
+      <h1>Ramboll ExpertiseManagement Platform</h1>
       <h3>Building teams for complex projects with specific competence.</h3>
         <br/>
         <LinkHOC to="/dashboard">
