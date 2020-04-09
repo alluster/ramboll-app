@@ -12,9 +12,7 @@ const Member = (props) =>  {
         .then(entry => setData(entry))
         
 }, [])
-console.log(data)
 const member = data.fields || { competences: [] }
-console.log(member)
 const skillMap = member.competences.map((competence, i) => {
     return ( 
     <h1 key={competence}> <span class="label label-primary">{competence}</span></h1>

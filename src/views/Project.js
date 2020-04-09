@@ -16,7 +16,6 @@ const Project = (props) =>  {
 
 const project = data.fields || {members: []}
 const memberList = project.members || []
-console.log(memberList)
 const members = () => {
     if(memberList.length = 0){
         return  <p>No members assigned for this project</p>

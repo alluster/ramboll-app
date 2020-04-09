@@ -12,9 +12,7 @@ const Project = (props) =>  {
         .then(entry => setData(entry))
         
 }, [])
-console.log(data)
 const partner = data.fields || { competences: [] }
-console.log(partner)
 const skillMap = partner.competences.map((competence, i) => {
     return ( 
     <h1 key={competence}> <span class="label label-primary">{competence}</span></h1>

@@ -23,7 +23,6 @@ function getContent(type) {
         client.getEntries({ 'content_type': type })
             .then(entries => {
                 resolve(entries.items);
-                console.log(entries)
 
             })
             .then()
@@ -40,8 +39,6 @@ function getEntry(id) {
         client.getEntry(id)
             .then(entry => {
                 resolve(entry);
-                console.log(entry)
-
             })
             .then()
             .catch(error => {

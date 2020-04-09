@@ -35,8 +35,6 @@ const ProjectList = array.map( (item, i) => {
            
     
 );
-
-console.log(data)
   return (
     <Container >
         {ProjectList}
