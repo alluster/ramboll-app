@@ -24,7 +24,7 @@ const skillMap = partner.competences.map((competence, i) => {
   return (
     <Container >
         <div class="page-header">
-            <h1>{partner.name} <small>{partner.introduction}</small></h1>
+            <h1>{partner.partnerName} <small>{partner.introduction}</small></h1>
         </div>
         {skillMap}
        

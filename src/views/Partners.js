@@ -5,11 +5,10 @@ import { getContent } from './../contentful';
 import ListItem from '../components/ListItem';
 import Container from '../components/Container';
 import LinkHOC from '../components/LinkHOC';
-
 const Partners = () =>  {
     const [data, setData] = useState([]);
         useEffect(() => {
-        getContent('parter')
+        getContent('partner')
         .then(entries => setData(entries))
         
 }, [])
@@ -17,10 +16,11 @@ const array = data || []
 
 const PartnerList = array.map( (item, i) => {
     return (
-        <LinkHOC to={`partner/${item.sys.id}`}>
+        <LinkHOC to={`partner/${item.sys.id}`} key={i}>
+            <br />
             <ListItem 
-                name={item.fields.name} 
-                key={i}
+                name={item.fields.partnerName} 
+                email={item.fields.email}
                 image={item.fields.profileImage.fields.file.url}
                 introduction={item.fields.introduction}
             />
@@ -29,12 +29,9 @@ const PartnerList = array.map( (item, i) => {
     )
 
 }
-   
-           
-    
+
 );
 
-console.log(data)
   return (
     <Container >
         {PartnerList}

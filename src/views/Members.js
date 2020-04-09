@@ -16,12 +16,12 @@ const array = data || []
 
 const MemberList = array.map( (item, i) => {
     return (
-        <LinkHOC to={`member/${item.sys.id}`}>
+        <LinkHOC to={`member/${item.sys.id}`} key={i}>
             <br />
             <ListItem 
                 name={item.fields.memberName} 
                 email={item.fields.email}
-                key={i}
+                
                 image={item.fields.profileImage.fields.file.url}
                 introduction={item.fields.introduction}
             />

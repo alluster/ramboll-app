@@ -14,31 +14,52 @@ const Project = (props) =>  {
         
 }, [])
 
-console.log(data)
 const project = data.fields || {members: []}
-console.log(project)
-const members = project.members.map((member, i) => {
-    return ( 
-        <LinkHOC to={`member/${member.sys.id}`}>
-        <br />
-        <ListItem 
-            name={member.fields.memberName} 
-            email={member.fields.email}
-            key={i}
-            image={member.fields.profileImage.fields.file.url}
-            introduction={member.fields.introduction}
-        />
-    </LinkHOC>
-)
-})
+const memberList = project.members || []
+console.log(memberList)
+const members = () => {
+    if(memberList.length = 0){
+        return  <p>No members assigned for this project</p>
+    }
+    return (
+        <div>
+            {memberList.map((member, i) => {
+                return (
+                    <LinkHOC to={`member/${member.sys.id}`}>
+                        <br />
+                        <ListItem 
+                            name={member.fields.memberName} 
+                            email={member.fields.email}
+                            key={i}
+                            image={member.fields.profileImage.fields.file.url}
+                            introduction={member.fields.introduction}
+                        />
+                    </LinkHOC>
+                )
+           
+            }
+        )}
+        </div>
+       
+    )
+
+}
+
   return (
     <Container >
+
         <div className="jumbotron">
             <h1>  {project.projectName}</h1>
             
         </div>
-        <p>List of project members:</p>
-        {members}
+   
+                <div>
+                    <p>List of project members:</p>
+                    {members()}
+                </div>
+               
+        
+       
         <LinkHOC to="/dashboard">
         <br />
         <button className="btn btn-primary btn-lg" href="#" role="button">
